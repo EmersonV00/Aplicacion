@@ -13,7 +13,52 @@
   var database = firebase.database();
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {
+.controller('DashCtrl', function($scope, $rootScope, $state) {
+  $rootScope.listaProductos = {};
+
+   firebase.database().ref('producto').on('value', function(productReceive) {
+  $rootScope.listaProductos[data]= productReceive.val();
+
+});
+   //$rootScope.listaProductos = $rootScope.listaProductos[0]
+
+    $rootScope.Categorias=[
+{
+  nombreCategoria:"Tv y Video", imagen:"https://www.lg.com/pe/images/televisores/md06104738/gallery/d001.jpg"
+},
+{
+  nombreCategoria:"Celulares", imagen:"https://static.iris.net.co/dinero/upload/images/2019/10/16/278083_1.jpg"
+},
+{
+  nombreCategoria:"Linea blanca", imagen:"https://www.chopinmol.com/16796-large_default/lavadora-automatica-de-19-kg.jpg"
+},
+{
+  nombreCategoria:"Videojuegos", imagen:"https://images-na.ssl-images-amazon.com/images/I/81nDSzyHhCL._SX679_.jpg"
+},
+{
+  nombreCategoria:"Electrodomésticos", imagen:"https://tienda.bodegangas.com.gt/wp-content/uploads/2019/05/licuacromadas-600x600.jpg"
+},
+{
+  nombreCategoria:"Computación y tablets", imagen:"https://www.argomall.com/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/a/s/asus-x407ma-gld-2.png"
+},
+{
+  nombreCategoria:"Audio", imagen:"https://www.steren.com.gt/media/catalog/product/cache/b69086f136192bea7a4d681a8eaf533d/b/o/boc-069_x1ne.jpg"
+},
+{
+  nombreCategoria:"Cámaras y drones", imagen:"https://c1.neweggimages.com/ProductImage/380-0002-00039-S06.jpg"
+},
+{
+  nombreCategoria:"Accesorios", imagen:"https://images-na.ssl-images-amazon.com/images/I/61t1cks8mBL._SY355_.jpg"
+},
+{
+  nombreCategoria:"Ambientadores", imagen:"https://cdn1.coppel.com/images/catalog/pm/6305433-1.jpg"
+}
+]
+
+  $scope.viewP = function(){
+    //Es una funcion para redireccionar por medio del estado
+    $state.go("viewproduct");
+  }
 
 })
 
@@ -50,7 +95,7 @@ angular.module('starter.controllers', [])
 .controller("registroCtrl", function($scope){
   $scope.obtener = function (user){
     
-  firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(function success(x){
+  firebase.auth().createUserWithEmailAndPassword(user.usuario, user.email, user.password, user.confirmpassword).then(function success(x){
     swal("Genial!", "Registro exitoso!", "success")
       firebase.database().ref("/user").set({
           correo: user.email
@@ -69,3 +114,10 @@ angular.module('starter.controllers', [])
 });
 }
 })
+
+.controller('viewproductCtrl', function($scope,$rootScope) {
+  $scope.Pro = $rootScope.listaProductos[0];
+  console.log($rootScope.Pro)
+ 
+})
+//se genera una posicion 0 entonces hay que entrar a ella

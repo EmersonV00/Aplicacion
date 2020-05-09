@@ -1,5 +1,11 @@
-<ion-view view-title="Dashboard">
-  <ion-content class="padding">
-  	   
-  </ion-content>
-</ion-view>
+<div class="bar bar-header bar-dark">
+  <h1 class="title">Categorías MAX</h1>
+</div>
+
+<div class="container"> 
+	<div class="row" ng-repeat="c in Categorias">
+		<div class="col c" style="background:url('{{c.imagen}}')" ng-click="viewP()">
+			<p>{{c.nombreCategoria}}</p>	
+		</div>
+	</div>
+</div>	
