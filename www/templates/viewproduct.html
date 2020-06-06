@@ -1,12 +1,10 @@
-<div class="row" ng-repeat="p in Pro">
-  <div class="col">
-  	<img src="img/logo_max.png" height="20%" width="20%">
+<div class="container">
+  <div class="row" ng-repeat="x in listaProductos">
+    <div class="col col-20">
+    	<img src="img/logo_max.png" height="20%" width="20%">
+    </div>
+    <div class="col col-80">
+    	<span>{{x.nombre}}</span>
+    </div>
   </div>
-  <div class="col">
-  	<span>{{p.nombre}}</span>
-  </div>
-  <div class="col">
-  	
-  	<span>{{p.precio}}</span>
-  </div>
-</div>
+</div>  

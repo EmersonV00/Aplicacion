@@ -1,11 +1,27 @@
-<div class="bar bar-header bar-dark">
-  <h1 class="title">Categorías MAX</h1>
-</div>
-
-<div class="container"> 
-	<div class="row" ng-repeat="c in Categorias">
-		<div class="col c" style="background:url('{{c.imagen}}')" ng-click="viewP()">
-			<p>{{c.nombreCategoria}}</p>	
+<ion-view view-title="Dashboard">
+	<ion-content class="padding">
+		<div class="container"> 
+			<div class="row espacio" ng-repeat="c in Categorias">
+			<div class="col contenedor sinEs">
+			 <div class="row sinEs">
+			 	<div class="col col-20 centrado alto">
+			 		<img src="{{c.imagen}}">
+			 	</div>
+			 	<div class="col col-67">
+			 		<div class="row">
+			 			<div class="col negrita">{{c.nombreCategoria}}</div>
+			 		</div>
+			 		<div class="row">
+			 			<div class="col ajuste">{{c.descripcion}}</div>
+			 		</div>
+			 	</div>
+			 	<div class="col col-25">
+			 		<br>
+			 		<i class="fas fa-angle-right tamIcon"></i>
+			 	</div>
+			 </div>
 		</div>
-	</div>
-</div>	
+		</div>
+		</div>
+	</ion-content>
+</ion-view>

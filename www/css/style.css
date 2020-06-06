@@ -1,12 +1,38 @@
+*{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.contenedor{
+  background-color: #E1E1E1;
+  border-radius: 5px;
+  height: 85px;
+  padding: 0;
+}
+.espacio{
+  padding-bottom: 3%;
+}
 .c {
   height: 50px;
   border: 1px solid black !important;
 }
-
+.negrita{
+  font-weight: bolder;
+  padding-bottom: 0; 
+}
+.ajuste{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+}
 
 .estilo{
   color: gray;
   position: center;
+}
+.tamIcon{
+  font-size: 33px;
+  color: #9D9D9D;
+  cursor: pointer;
 }
 
 .login{

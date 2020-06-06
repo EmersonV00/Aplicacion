@@ -16,42 +16,43 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope, $rootScope, $state) {
   $rootScope.listaProductos = {};
 
-   firebase.database().ref('producto').on('value', function(productReceive) {
-  $rootScope.listaProductos[data]= productReceive.val();
-
-});
+   firebase.database().ref('/producto').on("value", function(snapshot) {
+  $rootScope.listaProductos= snapshot.val()
+  },function(error){
+      console.log("Error: " + error.code);
+  });
    //$rootScope.listaProductos = $rootScope.listaProductos[0]
 
     $rootScope.Categorias=[
 {
-  nombreCategoria:"Tv y Video", imagen:"https://www.lg.com/pe/images/televisores/md06104738/gallery/d001.jpg"
+  nombreCategoria:"Tv y Video", imagen:"img/tag1.jpeg",descripcion:"Televisores, video y audio para TV"
 },
 {
-  nombreCategoria:"Celulares", imagen:"https://static.iris.net.co/dinero/upload/images/2019/10/16/278083_1.jpg"
+  nombreCategoria:"Celulares", imagen:"img/tag2.jpeg",descripcion:"Celulares prepago, liberados y accesorios"
 },
 {
-  nombreCategoria:"Linea blanca", imagen:"https://www.chopinmol.com/16796-large_default/lavadora-automatica-de-19-kg.jpg"
+  nombreCategoria:"Linea blanca", imagen:"img/tag3.jpeg",descripcion:"Linea blanca, estufas y refrigeración"
 },
 {
-  nombreCategoria:"Videojuegos", imagen:"https://images-na.ssl-images-amazon.com/images/I/81nDSzyHhCL._SX679_.jpg"
+  nombreCategoria:"Videojuegos", imagen:"img/tag4.jpeg",descripcion:"Consolas, juegos y accesorios"
 },
 {
-  nombreCategoria:"Electrodomésticos", imagen:"https://tienda.bodegangas.com.gt/wp-content/uploads/2019/05/licuacromadas-600x600.jpg"
+  nombreCategoria:"Electrodomésticos", imagen:"img/tag5.jpeg",descripcion:"Electrodomésticos varios"
 },
 {
-  nombreCategoria:"Computación y tablets", imagen:"https://www.argomall.com/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/a/s/asus-x407ma-gld-2.png"
+  nombreCategoria:"Computación y tablets", imagen:"img/tag6.jpeg",descripcion:"Computadoras de escritorio, laptops, tablets"
 },
 {
-  nombreCategoria:"Audio", imagen:"https://www.steren.com.gt/media/catalog/product/cache/b69086f136192bea7a4d681a8eaf533d/b/o/boc-069_x1ne.jpg"
+  nombreCategoria:"Audio", imagen:"img/tag1.jpeg",descripcion:"Audio para casa, micrófonos, tornamesas y más"
 },
 {
-  nombreCategoria:"Cámaras y drones", imagen:"https://c1.neweggimages.com/ProductImage/380-0002-00039-S06.jpg"
+  nombreCategoria:"Cámaras y drones", imagen:"img/tag2.jpeg",descripcion:"Videocámaras, cámaras de accion y drones"
 },
 {
-  nombreCategoria:"Accesorios", imagen:"https://images-na.ssl-images-amazon.com/images/I/61t1cks8mBL._SY355_.jpg"
+  nombreCategoria:"Accesorios", imagen:"img/tag3.jpeg",descripcion:"Prendas electrónicas"
 },
 {
-  nombreCategoria:"Ambientadores", imagen:"https://cdn1.coppel.com/images/catalog/pm/6305433-1.jpg"
+  nombreCategoria:"Ambientadores", imagen:"img/tag4.jpeg", descripcion:"Aire acondicionado, ventiladores y calefactores"
 }
 ]
 
